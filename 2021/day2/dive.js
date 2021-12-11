@@ -8,6 +8,11 @@ function processCommands(state, commands, navigator) {
 }
 
 fs.readFile('./input.txt', 'utf-8', (err, data) => {
+    if (err) {
+        console.error(err)
+        return
+    }
+
     commands = data.split('\n')
     commands.pop()
 
@@ -32,7 +37,7 @@ fs.readFile('./input.txt', 'utf-8', (err, data) => {
     }
 
     processCommands(state1, commands, navigator1)
-    console.log(state1.x, state1.y)
+    console.log(state1)
     console.log(state1.x * state1.y)
         
     // Part 2
@@ -58,6 +63,6 @@ fs.readFile('./input.txt', 'utf-8', (err, data) => {
     }
 
     processCommands(state2, commands, navigator2)
-    console.log(state2.x, state2.y)
+    console.log(state2)
     console.log(state2.x * state2.y)
 })
